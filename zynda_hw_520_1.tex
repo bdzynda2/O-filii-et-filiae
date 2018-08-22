@@ -1,0 +1,74 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\title{Econ 520 Homework 1}
+\author{David Zynda}
+\date{August 29, 2018}
+
+
+ 
+ \begin{document}
+\maketitle
+ \begin{enumerate}
+
+	 \item  For each of the following experiments, describe the sample space. 
+		 \begin{enumerate}
+			 \item Toss a coin four times.\hfill \break 
+				The sample space is all possible combinations of heads and tails for tossing one coin four times. For example, $$S = \{(H,H,H,H), (H,H,H,T), (H,H,T,H), ..., (T,T,T,T)\}$$ for a sample space consisting of 16 outcomes. 
+			 \item Count the number of insect-damaged leaves on a plant. 
+				\hfill \break
+				The sample space is each possible number of insect damaged leaves. For example, $$S = \{1,2,...,n\}$$ for $n$ leaves on a plant. 
+			 \item Measure the lifetime (in hours) of a particular brand of light bulb.
+				\hfill \break 
+				 This sample space could be anywhere from zero hours to, in theory, and infinite amount. Hence $S = \{0,1,2,...,\infty\}$
+			 \item Record the weights of 10-day-old rats. 
+				 \hfill \break
+				 Let $\{x_n\}$ be the weight of the $n^{th}$ rat which will be in a range from $[0,\infty)$. Then, the sample space is $S = \{x_1, ... x_n\}$. 
+			 \item Observe the proportion of defectives in a shipment of electronic components.
+				 \hfill \break
+				 Let $x_i = \frac{i}{n}$ where $n$ is the total number of components and $i$ represents the $i^{th}$ component from $1,..,n$. The, the sample space is $S = \{x_1, x_2, ... x_n\}$
+		 \end{enumerate}
+	 \item Suppose we toss two fair coins. Let $A$ be the event "two heads," let $B$ be the event "no heads," and let $C$ be the event "at least one head". Define the sample space and the probability function. Calculate the probabilities of the following events: \hfill \break
+	Let $x$ denote the event that the flip is a head:
+		 $P(x) = $
+		 \[ \begin{cases}
+			 \frac{1}{4} & x = 0 \\
+			 \frac{1}{2} & x = 1 \\
+			 \frac{1}{4} & x = 2 
+		\end{cases}
+		 \]
+
+		\begin{enumerate}
+			\item $A \cup B$: 
+				$$S = \{(H,H),(T,T)\}$$
+				$$P(A \cup B) = \frac{1}{4} + \frac{1}{4} = \frac{1}{2}$$
+			\item $A \cap B $:
+				$$S = \emptyset$$
+				$$P(a \cap B) = 0$$
+			\item $B \cap C$: 
+				$$S = \emptyset$$
+				$$P(B \cap C) = 0$$
+			\item $A^c$: 
+				$$S = \{(H,T), (T,H), (T,T)\}$$
+				$$P = \frac{1}{4} + \frac{1}{4} + \frac{1}{4} = \frac{3}{4}$$
+		\end{enumerate}
+		
+	\item For events A and B, find formulas for the proabilities of the following vents in terms of the quantities $P(A)$, $P(B)$, or $P(A \cap B)$:
+		\begin{enumerate}
+			\item either $A$ or $B$ or both:
+			$$P(A) + P(B) - P(A \cap B)$$
+			\item either $A$ or $B$ but not both:
+			$$P(A) + P(B) - 2P(A \cap B)$$
+			\item at least one of $A$ or $B$:
+			$$P(A) + P(B) - P(A \cap B)$$
+			\item at most one of $A$ or $B$:
+			$$1 - p(A \cap B)$$
+		\end{enumerate}		
+	 \end{enumerate}
+
+
+
+ \end{document}
+
+
