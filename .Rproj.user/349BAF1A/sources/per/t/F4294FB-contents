@@ -1,0 +1,106 @@
+---
+title: "Econ 520 HW 2"
+author: "David Zynda"
+date: "August 29, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## (1) Bowl I containts 3 red chips and 7 blue chips. Bowl II contains 6 red chips and 4 blue chips. A bowl is slected at random, and the 1 chip is drawn from this bowl. What is the probability that the chip drawn is red? 
+
+
+Let $R$ denote the event that a red chip is drawn and: 
+
+
+Let $I$ denote the event that bowl one is chosen and $II$ denote event that bowl II is chosen. I assume that:
+
+$$P(I) = P(II) = 0.5$$
+
+If this is true, what bowl the chip came from technically does not matter. There are 3 red chips in 7 blue chips in bowl I and 6 red chips and 4 blue chips in bowl II. So, the total amount of red chips is 9 and the total amount of blue is 11. Therefore, the probability of drawing a red chip is $P(R) = \frac{9}{9+11} = \frac{9}{20} = 0.45$.
+
+Alternatively, I could have factored in the probability of randomly selecting a bowl as well, making a weighted average of probabilities such that:
+
+$$\frac{1}{2} \frac{3}{3+7} + \frac{1}{2} \frac{6}{6+4} = 0.45$$
+
+
+__Given that the chip is red, what is conditional probability it came from bowl II?__
+
+
+$$P(II | R) = \frac{P(II \cap R)}{P(R)} = \frac{.5(6 / 10)}{0.45} = \frac{2}{3}$$
+This makes sense because bowl I has 3 red chips and bowl 2 has 6 red chips. There are 9 chips total, and bowl II has 2/3 of the population of red chips. 
+
+
+
+## (2) Two dice are thrown and three events are defined as follows: A means "odd face with first die"; B means "odd face with second die"; and C means "odd sum" (one face is odd, one face is even). If each of the 36 sample points has a probaility of $\frac{1}{36}$ then:
+
+__(a) Show that the events are pairwise independent__
+
+$$P(A) \cap P(B) \cap P(C) = 0$$
+Two or more events are independent if their intersection are empty and each probability is greater that zero. THe probability of strictly getting an odd face on the first die and and odd face on a second die and having one face odd and the other even cannot happen even conceptually. 
+
+__(b) Show that the events are not jointly independent__
+
+$$P(A)P(B)P(C) = \Big( \frac{1}{2} \Big)\Big( \frac{1}{2} \Big) \Big( \frac{1}{2} \Big) = \frac{1}{8}$$
+
+
+
+
+## (3) Two telegraph signals are sent. Assume that the two signals were sent independently, and that the (marginal) probability of a dot being sent is $\frac{3}{7}$ and the (marginal) probability of a dash being sent is $\frac{4}{7}$. The probability that a dash sent is read as a dot is $\frac{1}{3}$ and the probability that a dot is read as a dash is $\frac{1}{4}$. What is the probability for all four combinations to have been sent if two dots are received?
+
+Let $A$ denote event that a dot was sent. 
+Let $B$ denote event that a dash was sent. 
+Let $C$ denote event that a dot was received. 
+Let $D$ denote event that a dash was received. 
+
+Because $A$ and $B$ are mutually exclusive to one another and $C$ and $D$ are mutually exclusive to one another, I suppose they could be represented as, say $A$ and $A^c$ and $C$ and $C^C$. This would help make sense of the claim below that, for instance, $P(C|B) = \frac{1}{3} \implies P(C|A) = \frac{2}{3}$ since it would mean that $B = A^c$ so we can consider the total sample space of $C$ being partitioned between $A$ and $A^c = B$ and properly say that $1 - P(C|B=A^c) = P(C|A)$. 
+
+$$P(A) = \frac{3}{7}$$
+$$P(B) = \frac{4}{7}$$
+$$P(C|B) = \frac{1}{3} \implies P(C|A) = \frac{2}{3}$$
+$$P(D|A) = \frac{1}{4} \implies P(D|B) = \frac{3}{4}$$
+
+(i)$P(C|A) \cap P(C|A) = P(C|A)P(C|A) = \frac{2}{3}*\frac{2}{3} = \frac{4}{9}$
+
+
+(ii) $P(C|A) \cap P(C|B) = \frac{2}{3} * \frac{1}{3} = \frac{2}{9}$
+
+
+(iii) $P(C|B) \cap  P(C|A)= \frac{1}{3} * \frac{2}{3}   = \frac{2}{9}$
+
+
+(iv)  $P(C|B) \cap P(C|B) = \frac{1}{3} * \frac{1}{3} = \frac{1}{9}$
+
+
+
+## (4) Bowl I contains 6 red chips and 4 blue chips. Five of these chips are selected at random and without replacement are put in bowl II, which was originally empty. One chip is then at random drawn from bowl II. Find the conditional probability that 2 red chips and 3 blue chips were transferred from bowl I to bowl II given that a blue chip is drawn from bowl II. 
+
+Let the sample space for five chips in bowl II be:
+$$S = \{(BBBBR), (BBBRR), (BBRRR), (BRRRR), (RRRRR)\}$$
+
+
+Let the random variable $X$ be assigned to each outcome:
+
+$$P(BBBBR) = P(x=1),..., P(RRRRR) = P(x=5)$$
+
+
+Then:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
