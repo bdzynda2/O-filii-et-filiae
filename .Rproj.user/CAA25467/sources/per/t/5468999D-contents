@@ -39,7 +39,12 @@ This makes sense because bowl I has 3 red chips and bowl 2 has 6 red chips. Ther
 __(a) Show that the events are pairwise independent__
 
 $$P(A) \cap P(B) \cap P(C) = 0$$
-Two or more events are independent if their intersection are empty and each probability is greater that zero. THe probability of strictly getting an odd face on the first die and and odd face on a second die and having one face odd and the other even cannot happen even conceptually. 
+Two or more events are independent if their intersection is the product of the probabilities such that $P(A \cap B) = P(A)P(B)$, which is equivalent to showing: $P(A|B) = P(A)$
+
+$$P(A|B) = P(B|A)* P(A)/P(B) = \frac{1}{2}*\frac{ \frac{1}{2} }{ \frac{1}{2} } = \frac{1}{2} = P(A)$$
+$$P(B|C) = P(C|B)* P(B)/P(C) = \frac{1}{2}*\frac{ \frac{1}{2} }{ \frac{1}{2} } = \frac{1}{2} = P(B)$$
+$$P(C|A) = P(A|C)* P(C)/P(A) = \frac{1}{2}*\frac{ \frac{1}{2} }{ \frac{1}{2} } = \frac{1}{2} = P(C)$$
+The probability of strictly getting an odd face on the first die and and odd face on a second die and having one face odd and the other even cannot happen even conceptually. 
 
 __(b) Show that the events are not jointly independent__
 
@@ -51,20 +56,177 @@ $$P(A)P(B)P(C) = \Big( \frac{1}{2} \Big)\Big( \frac{1}{2} \Big) \Big( \frac{1}{2
 ## (3) Two telegraph signals are sent. Assume that the two signals were sent independently, and that the (marginal) probability of a dot being sent is $\frac{3}{7}$ and the (marginal) probability of a dash being sent is $\frac{4}{7}$. The probability that a dash sent is read as a dot is $\frac{1}{3}$ and the probability that a dot is read as a dash is $\frac{1}{4}$. What is the probability for all four combinations to have been sent if two dots are received?
 
 Let $A$ denote event that a dot was sent. 
-Let $B$ denote event that a dash was sent. 
-Let $C$ denote event that a dot was received. 
-Let $D$ denote event that a dash was received. 
+Let $A'$ denote event that a dash was sent. 
+Let $B$ denote event that a dot was received. 
+Let $B'$ denote event that a dash was received. 
 
-Because $A$ and $B$ are mutually exclusive to one another and $C$ and $D$ are mutually exclusive to one another, I suppose they could be represented as, say $A$ and $A^c$ and $C$ and $C^C$. This would help make sense of the claim below that, for instance, $P(C|B) = \frac{1}{3} \implies P(C|A) = \frac{2}{3}$ since it would mean that $B = A^c$ so we can consider the total sample space of $C$ being partitioned between $A$ and $A^c = B$ and properly say that $1 - P(C|B=A^c) = P(C|A)$. 
+
+
+
 
 $$P(A) = \frac{3}{7}$$
-$$P(B) = \frac{4}{7}$$
-$$P(C|B) = \frac{1}{3} \implies P(C|A) = \frac{2}{3}$$
-$$P(D|A) = \frac{1}{4} \implies P(D|B) = \frac{3}{4}$$
+$$P(A') = \frac{4}{7}$$
+$$P(B|A') = \frac{1}{3} \implies P(B'|A') = \frac{2}{3}$$
+$$P(B'|A) = \frac{1}{4} \implies P(B|A) = \frac{3}{4}$$
 
-(i)$P(A|C)$ and $P(A|C)$
+$$P(B) = P(B|A)P(A) + P(B|A')P(A') = \frac{3}{4} \frac{3}{7} + \frac{1}{3} \frac{4}{7} = \frac{43}{84}$$
 
-$$P(A|C) \cap P(A|C) = P(A|C)P(A|C) = \frac{4}{9}$$
+_Case I: Two dots sent given two dots received_
+
+$$P(A|B) = \frac{P(B|A) P(A)}{P(B)} = \frac{ \frac{3}{4} \frac{3}{7} }{ \frac{43}{84} } = \frac{9}{28} \frac{84}{43} = \frac{27}{43} = 0.627907$$
+Transmitted dots/dashes are independent of one another, so the probability that two dots are sent given two dots are recieved is:
+
+$$P(A|B)P(A|B) = \Big( \frac{27}{43} \Big)^2 = 0.3942672$$
+_Case II: One dot sent first and dash sent second given two dots received_
+
+$$P(A'|B) = \frac{ P(B|A') P(A') }{ P(B) } = \frac{ \frac{1}{3} \frac{4}{7} } {\frac{43}{84}} = \frac{16}{43}$$
+
+$$P(A|B)P(A'|B) = \Big( \frac{27}{43} \Big) \Big( \frac{16}{43} \Big) = \frac{432}{1849}$$
+
+_Case III: One dash sent first and one dot sent second given two dots are received_
+
+This will be the same as Case II:
+
+$$P(A'|B)P(A|B) =  \Big( \frac{16}{43} \Big) \Big( \frac{27}{43} \Big) = \frac{432}{1849}$$
+
+
+_Case IV: Two dashes sent given two dots are received_
+
+$$P(A'|B)P(A'|B) = \Big( \frac{16}{43} \Big)\Big( \frac{16}{43} \Big) = \frac{256}{1849}$$
+
+## (4) Bowl I contains 6 red chips and 4 blue chips. Five of these chips are selected at random and without replacement are put in bowl II, which was originally empty. One chip is then at random drawn from bowl II. Find the conditional probability that 2 red chips and 3 blue chips were transferred from bowl I to bowl II given that a blue chip is drawn from bowl II. 
+
+Let the sample space for five chips in bowl II be:
+$$S = \{(BBBBR), (BBBRR), (BBRRR), (BRRRR), (RRRRR)\}$$
+
+
+Let the random variable $X$ be assigned to each outcome:
+
+|Outcome      | Random Variable X | P(X = x)        |
+|:-----------:|:-----------------:|:---------------:|
+| BBBBR       | x = 1             | $\frac{6}{252}$ |
+| BBBRR       | x = 2             |$\frac{60}{252}$ |
+| BBRRR       | x = 3             |$\frac{120}{252}$|
+| BRRRR       | x = 4             |$\frac{60}{252}$ |
+| RRRRR       | x = 5             |$\frac{6}{252}$  |
+
+
+
+Each Probability P(X=x) comes from the fact that:
+
+$$P(x=1) = \frac{ {4 \choose 4} {6 \choose 1} }{ {10 \choose 5} }= \frac{6}{252}$$
+$$P(x=2) = \frac{ {4 \choose 3} {6 \choose 2} }{ {10 \choose 5} }= \frac{60}{252}$$
+$$P(x=3) = \frac{ {4 \choose 2} {6 \choose 3} }{ {10 \choose 5} }= \frac{120}{252}$$
+$$P(x=4) = \frac{ {4 \choose 1} {6 \choose 4} }{ {10 \choose 5} }= \frac{60}{252}$$
+$$P(x=5) = \frac{ {4 \choose 0} {6 \choose 5} }{ {10 \choose 5} }= \frac{6}{252}$$
+
+
+So, we seek to find the probability $P(x=2)$ conditional on the fact that a blue chip is drawn from bowl II. Let the event that such happens as B. Hence we want:
+
+$$P(X=2 | B) = \frac{P(x=2 \cap B)}{P(B)}, $$
+
+
+
+Now, we invoke the intercession of St. Thomas Bayes to aid us in our cause. Notice the above is the same as summing up the probability of drawing a blue chip partitioned about each random variable $x$. In other words it is the denominator of Bayes' Theorem such that:
+
+$$P(B) = P(B|x=1)P(x=1) + P(B|x=2)P(x=2) + ...+ P(B|x=5)P(x=5)$$
+$$P(B) = \frac{4}{5}\frac{6}{252} + \frac{3}{5}\frac{60}{252} + \frac{2}{5}\frac{120}{252} + \frac{1}{5}\frac{60}{252} + \frac{0}{5}\frac{6}{252} = \frac{2}{5}$$
+
+
+$$P(x=2 | B) = \frac{P(B|x=2)P(x=2)}{P(B)} = \frac{P(x=2 \cap B)}{P(B)}$$
+
+$$P(B|x=2) = \frac{ {3 \choose 1} }{ {5 \choose 1} } = \frac{3}{5}$$
+
+$$P(x=2) = \frac{60}{252}$$
+$$P(x=2 | B) = \frac{ \frac{3}{5} \frac{60}{252} }{ \frac{2}{5} } = \frac{5}{14} = 0.3571429$$
+
+
+
+
+## (5) Two litters of a particular rodent species have been born, one with two brown-haired and one gray-haired (litter 1), and the other with three brown-haired and two gray-haired (litter 2). We select a litter at random and then select an offspring at random from the selected litter. 
+
+__(a) What is the probability that an animal chosen has brown hair?__
+
+Let B denote event that rodent is brown and G denote event that rodent is gray. Also, Let the random variable $X$ be assigned to each litter, taking on values of $x=1$ and $x=2$ for litter 1 and 2 respectively. 
+
+$$P(B) = P(B | x=1)P(x=1) + P(B | x=2)P(x=2) = \frac{2}{3} \frac{1}{2} + \frac{3}{5} \frac{1}{2} = \frac{19}{30}$$
+
+__(b)__ Give that a brown-haried offsping was selected, what is the probability that the sampling was from litter 1?
+
+$$P(x=1|B) =\frac{ P(B|x=1)P(x=1) }{ P(B) } = \frac{ \frac{2}{3} \frac{1}{2} }{ \frac{19}{30} }  = \frac{10}{19}$$
+
+
+
+## (6) Consider a fair coin tossed until a tail appears. O each toss, head or tail are equally likely and each toss is an independent event. 
+
+__(a) What is the sample space?__
+
+$$S = \{...H^{(n-1)}T^x, H^nT^x \}$$
+Where $n$ is the number of tosses until $x=1$ indicating that a Tail has appears on the $n^{th}$ toss. $x =0$ otherwise.
+
+
+__(b) Calculate the probability that the tail appears on the fourth toss__
+
+
+This is a geometric distribution. The probability of getting a tail on the 4th toss: 
+$$P(X = k) = (1-p)^{k-1}p$$
+$$P(X=4) = \Big(1-\frac{1}{2} \Big)^{4-1} \Big( \frac{1}{2} \Big) = 0.0625$$
+
+OR: $P(H) P(H) P(H) P(T) = \Big( \frac{1}{4} \Big)^4 = \frac{1}{16} = 0.0625$
+
+
+__(c) Calculate the probability that it takes $x$ tosses for the tail to appear__
+
+$$P(X = x) = (1-0.5)^{x-1}0.5 = (0.5)^x$$
+
+__(d) Graph the probability mass function (pmf) of $X$ = number of tosses to get a tail to appear.__ 
+
+```{r}
+
+geop <- function(x, p1, p2){
+  y = (1 - p1)^(x-1)*p2
+  return(y)
+}
+
+k = seq(1,10)
+
+probs = geop(k,0.5,0.5)
+
+plot(k, probs, 
+     type='l', 
+     main = 'PMF of Geometric Distribution for Coin Toss', 
+     ylab = 'P(X=x)',
+     xlab = 'x'
+)
+points(k, probs)
+
+
+```
+
+
+__(e) Graph the cumulative density function of $X$.__ 
+
+
+
+
+```{r}
+
+
+
+k = seq(1,10)
+
+sums = cumsum(geop(k,0.5,0.5))
+
+plot(k, sums, 
+     main = 'CDF of Geometric Distribution for Coin Toss', 
+     ylab = 'P(X <= x)',
+     xlab = 'x',
+     pch=19
+)
+
+
+
+```
 
 
 
