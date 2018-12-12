@@ -1,0 +1,14 @@
+---
+title: "Econ 520 HW 12"
+author: "David Zynda"
+date: "November 17, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+
+_Write R function definitions for the following functions. Print out the function definitions and check them by calculating some specific values. Also, use the curve function

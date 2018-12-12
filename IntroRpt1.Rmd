@@ -1,0 +1,130 @@
+---
+title: "Introduction to R - ECON 520"
+author: "David Zynda"
+date: "October 18, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##  Install R
+
+__Exercise 1:__ 
+
+R Installed!
+
+
+
+_________________________________________
+
+
+
+
+<br>
+
+## R as a Calculator
+
+__Excercise 2:__
+
+```{r}
+1+2+3+4      ## Addition!
+(2/3)+23     ## PEMDAS!
+3^4          ## 3 to the power of 4!
+4^(1/2)      ## sqrt of 4
+sin(0)       ## returns value sin of 0
+log(1)       ## natural log 1
+log(5)       ## natural log 5
+pi           ## returns 3.14.... (unless you assign a new data structure to name pi)
+exp(1)       ## returns e^1
+```
+<br>
+
+
+_________________________________________
+
+
+
+__Exercise 3:__
+
+```{r}
+factorial(3)  ## 3 x 2 x 1 = 6
+choose(3,2)   ## 3! / (2!(3-2)!) = 3
+gamma(1)      ## gamma function should be 1
+```
+<br>
+
+_________________________________________
+
+
+__Exercise 4:__
+
+_Using variables, carry out the following computations in R and display the values of each variable:_
+
+```{r}
+w = 4; w
+x = 2.4; x
+y = w^x - log(x); y
+z = x + y - w; z
+```
+<br>
+
+_________________________________________
+
+
+## Defining functions
+
+__Exercise 5:__
+
+_Define the following functions in R, and evaluate them at the values given._
+
+(1) $f(x) = x^2 + 2x - 1$ evaluated at $x = 0,1,10$
+
+```{r}
+funky1 <- function(x){
+  return(x^2 + 2*x -1)
+}
+
+dat = matrix(c(0,1,10), nrow = 3, ncol = 1)
+
+apply(dat, 1, funky1)
+```
+
+
+
+
+<br>
+(2) $f(x) = (2\pi)^{-1} \cdot e^{\frac{-x^2}{2}}$ evaluated at $x = -196, 0, 1.96$
+
+```{r}
+funky2 <- function(x){
+  return( ((2*pi)^(-1) * exp((-x^2)/2)) )
+}
+
+dat = matrix(c(-1.96, 0, 1.96), nrow = 3, ncol = 1)
+
+apply(dat, 1, funky1)
+```
+
+
+
+
+
+<br>
+(3) $f(x) = log(log(x))$ evaluated at $x = 1, e, 4$. 
+
+```{r}
+funky3 <- function(x){
+  return(log(log(x)))
+}
+
+dat = matrix(c(1, exp(1), 4), nrow = 3, ncol = 1)
+
+apply(dat, 1, funky1)
+```
+
+
+
+
+

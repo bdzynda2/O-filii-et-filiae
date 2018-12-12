@@ -1,0 +1,114 @@
+---
+title: "Intro R Pt 2 - Econ 520"
+author: "David Zynda"
+date: "October 18, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Exercise 1
+
+_Let $z = (z_1, z_2, ..., z_40)'$ where $z_i = i$. Calculate the following:_
+
+(a) $z'z$
+
+```{r}
+z = seq(1,40)
+
+t(z) %*% z
+```
+
+
+
+
+
+
+(b) $\sum_{i=1}^{40}(\frac{1}{3})^{z_i}$
+
+```{r}
+summation = rep(0,length(z))
+for(i in 1:length(z)){
+  summation[i] = (1/3)^z[i]
+}
+sum(summation)
+
+## Or alternativelY:
+
+sum((1/3)^z)
+
+```
+
+
+
+
+
+(c) $\sum_{i=1}^{40} e^{z_i}$
+
+
+```{r}
+
+sum(exp(z))
+
+```
+
+
+
+(d) $\sum_{i=1}^{40} z_i(z_i-1)$.
+
+```{r}
+sum(z*(z-1))
+```
+
+
+## Exercise 2
+
+_Plot the following functions_
+
+(a) $\sin^2(x)$ over $[0, 4\pi]$
+(b) $e^{-x}$ over $[0,3]$. 
+
+```{r}
+curve(sin(x), from=0, to = 4*pi)
+
+```
+
+
+
+```{r} 
+curve(exp(x), from=0, to=3)
+```
+
+
+## Exercise 3
+
+$$\Omega = \{1,2,3,4\}$$
+$$P(1) = 0.1, P(2) = 0.4, P(3) = 0.3, P(4) = 0.2$$
+$$P(1) + P(2) + P(3) + P(4) = 1$$
+
+
+This gives a sample space of oucomes and assigns each outcome a number (its a random variable). The sum of the probabilities of the events equal 1. 
+
+$$P(X < 4)$$
+
+This asks for the probability of an event occuring that is less than 4. It shows the potential outcome with three `true` and one `false`. 
+
+That actual numerical probability for this event is as follows:
+
+$$P(X < 4) = 0.8$$
+
+Now, we seek the partition of the sample space that is greater than 1. 
+
+$$P(X > 1)$$
+
+Then, we find three out of the four outcomes fit this restriction. Next, we have: 
+
+$$P(1 < x < 4)$$
+
+Of course, there are two remaining outcomes that could work here, $2,3$. Which is exactly what the boolean values tell us. 
+
+Lastly, we assign a numerical probability to the outcome:
+
+$$P(1 < x < 4) =0.7$$

@@ -1,0 +1,25 @@
+
+# 1.a
+myfunction <- function(x){
+  return(1+2*x-x^2)
+}
+
+
+# 2 (a)
+
+x = rpois(1000, 1)
+hist(x, breaks = 50)
+
+
+# 3
+
+y = runif(1000, min=0, max =1)
+count = c(1:1000)
+avg = cumsum(y) / count
+
+plot(avg, type='l')
+
+
+
+# 4 use function rexp - search by entering ??rexp
+

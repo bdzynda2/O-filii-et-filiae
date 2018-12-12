@@ -1,0 +1,9 @@
+pre = c(4.9,5.3,6.2,5.4,5.2)
+post = c(4.6,3.8,5.7,4.9,5.1)
+
+
+test = t.test(pre,post,paired = TRUE)
+
+
+
+
